@@ -1,14 +1,10 @@
 import React from "react";
-export default () => {
+export default ({ addTask }) => {
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <br />
       <div id='calendario'>
-        <div id='anterior' onClick='mesantes()'></div>
-        <div id='posterior' onClick='mesdespues()'></div>
+        <div id='anterior'></div>
+        <div id='posterior'></div>
         <h2 id='titulos'></h2>
         <table id='diasc'>
           <tr id='fila0'>
@@ -75,44 +71,55 @@ export default () => {
             <td></td>
           </tr>
         </table>
-        <div id='fechaactual'>
-          <i onclick='actualizar()'>HOY: </i>
-        </div>
-        <div id='buscafecha'>
-          <form action='#' name='buscar'>
-            <p>
-              Buscar ... MES
-              <select name='buscames' style={{ margin: "0px 5px" }}>
-                <option value='0'>Enero</option>
-                <option value='1'>Febrero</option>
-                <option value='2'>Marzo</option>
-                <option value='3'>Abril</option>
-                <option value='4'>Mayo</option>
-                <option value='5'>Junio</option>
-                <option value='6'>Julio</option>
-                <option value='7'>Agosto</option>
-                <option value='8'>Septiembre</option>
-                <option value='9'>Octubre</option>
-                <option value='10'>Noviembre</option>
-                <option value='11'>Diciembre</option>
+        <div id='recordatorio'>
+          <table id='semana'>
+            <tr>
+              <th>Lunes</th>
+              <th>Martes</th>
+              <th>Miercoles</th>
+              <th>Jueves</th>
+              <th>Viernes</th>
+              <th>Sábado</th>
+              <th>Domingo</th>
+            </tr>
+            <tr id='tasks'>
+              <th>
+                <ul>
+                  <li>Coffee</li>
+                  <li>Tea</li>
+                  <li>Milk</li>
+                </ul>
+              </th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </table>
+          <div id='task'>
+            <h4>Añadir tareas</h4>
+            <br />
+            <form onSubmit={(e) => addTask(e)}>
+              <label htmlFor='dias'>Dia de la semana: </label>
+              <select name='dias'>
+                <option value='tareasLunes'>Lunes</option>
+                <option value='tareasMartes'>Martes</option>
+                <option value='tareasMiercoles'>Miercoles</option>
+                <option value='tareasJueves'>Jueves</option>
+                <option value='tareasViernes'>Viernes</option>
+                <option value='tareasSabado'>Sábado</option>
+                <option value='tareasDomingo'>Domingo</option>
               </select>
-              ... AÑO ...
-              <input
-                type='text'
-                name='buscaanno'
-                maxlength='4'
-                size='4'
-                style={{ margin: "0px 5px" }}
-              />
-              ...
-              <input
-                type='button'
-                value='BUSCAR'
-                onclick='mifecha()'
-                style={{ margin: "0px 5px" }}
-              />
-            </p>
-          </form>
+              <br />
+              <br />
+              <label htmlFor='boton'>Tarea: </label>
+              <input id='tareaInput' type='text' />
+              <br /> <br />
+              <input type='submit' value='Añadir tarea' />
+            </form>
+          </div>
         </div>
       </div>
     </div>
