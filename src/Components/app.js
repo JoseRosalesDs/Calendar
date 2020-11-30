@@ -1,5 +1,17 @@
 import React from "react";
-export default ({ addTask }) => {
+export default ({
+  addTask,
+  tareasLunes,
+  tareasMartes,
+  tareasMiercoles,
+  tareasJueves,
+  tareasViernes,
+  tareasSabado,
+  tareasDomingo,
+  input,
+  handleChange,
+  clearInput,
+}) => {
   return (
     <div>
       <div id='calendario'>
@@ -7,101 +19,146 @@ export default ({ addTask }) => {
         <div id='posterior'></div>
         <h2 id='titulos'></h2>
         <table id='diasc'>
-          <tr id='fila0'>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-          <tr id='fila1'>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr id='fila2'>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr id='fila3'>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr id='fila4'>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr id='fila5'>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr id='fila6'>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+          <tbody>
+            <tr id='fila0'>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr id='fila1'>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id='fila2'>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id='fila3'>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id='fila4'>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id='fila5'>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr id='fila6'>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
         <div id='recordatorio'>
           <table id='semana'>
-            <tr>
-              <th>Lunes</th>
-              <th>Martes</th>
-              <th>Miercoles</th>
-              <th>Jueves</th>
-              <th>Viernes</th>
-              <th>Sábado</th>
-              <th>Domingo</th>
-            </tr>
-            <tr id='tasks'>
-              <th>
-                <ul>
-                  <li>Coffee</li>
-                  <li>Tea</li>
-                  <li>Milk</li>
-                </ul>
-              </th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
+            <tbody>
+              <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+              </tr>
+              <tr id='tasks'>
+                <th>
+                  <ul>
+                    {tareasLunes.map((e) => (
+                      <li key={Math.floor(Math.random() * 100 + 0)}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {tareasMartes.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {tareasMiercoles.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {tareasJueves.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {tareasViernes.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {tareasSabado.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+                <th>
+                  <ul>
+                    {tareasDomingo.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </th>
+              </tr>
+            </tbody>
           </table>
           <div id='task'>
             <h4>Añadir tareas</h4>
             <br />
-            <form onSubmit={(e) => addTask(e)}>
+            <form
+              onSubmit={(e) => {
+                addTask(e);
+                clearInput();
+              }}
+            >
               <label htmlFor='dias'>Dia de la semana: </label>
               <select name='dias'>
                 <option value='tareasLunes'>Lunes</option>
@@ -115,7 +172,12 @@ export default ({ addTask }) => {
               <br />
               <br />
               <label htmlFor='boton'>Tarea: </label>
-              <input id='tareaInput' type='text' />
+              <input
+                id='tareaInput'
+                type='text'
+                value={input}
+                onChange={handleChange}
+              />
               <br /> <br />
               <input type='submit' value='Añadir tarea' />
             </form>
