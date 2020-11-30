@@ -1,6 +1,4 @@
-/*instrucciones generales*/
 * {
-  /* background-color: white; */
   margin: auto;
 }
 /*cabecera de la página*/
@@ -16,12 +14,11 @@ h1 {
   border: 4px solid black;
   max-width: 900px;
   text-align: center;
-  height: 825px;
+  height: 816px;
 }
 
 /*tabla del calendario*/
 #diasc {
-  /* border: 3px solid black; */
   border-collapse: separate;
   border-spacing: 4px;
 }
@@ -85,8 +82,6 @@ h1 {
   padding: 0.2em;
 }
 
-/* ////////////////////////////////// */
-
 #recordatorio {
   padding-top: 10px;
   background-color: #03045e;
@@ -133,8 +128,10 @@ h1 {
 #tasks th {
   height: 120px;
   vertical-align: top;
-  padding: 10px;
+  padding: 5px;
+  padding-left: 0px;
   text-align: left;
+  font: normal 10pt arial;
 }
 
 h3 {
